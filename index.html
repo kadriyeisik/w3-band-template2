@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>W3Schools Band Template</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            scroll-behavior: smooth;
+        }
+        /* Custom styles for slideshow text positioning */
+        .slideshow-text {
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 10;
+        }
+        /* Custom active class for navigation */
+        .nav-link.active {
+            background-color: #000; /* Original template uses black for active link */
+            color: #fff;
+        }
+        /* Custom styles for the search input animation */
+        .search-input-wrapper.hidden {
+            display: none;
+        }
+        .search-input-wrapper.show {
+            display: flex;
+            animation: fadeInDown 0.3s ease-out;
+        }
+        @keyframes fadeInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <nav class="w-full bg-black text-white py-4 fixed top-0 left-0 z-50 shadow-md">
+        <div class="container mx-auto flex items-center justify-between px-4 lg:px-8">
+            <ul class="hidden lg:flex space-x-6 text-sm uppercase font-semibold">
+                <li><a href="#home" class="nav-link hover:bg-gray-800 py-2 px-3 rounded-md transition-colors duration-200">Home</a></li>
+                <li><a href="#band" class="nav-link hover:bg-gray-800 py-2 px-3 rounded-md transition-colors duration-200">Band</a></li>
+                <li><a href="#tour" class="nav-link hover:bg-gray-800 py-2 px-3 rounded-md transition-colors duration-200">Tour</a></li>
+                <li><a href="#contact" class="nav-link hover:bg-gray-800 py-2 px-3 rounded-md transition-colors duration-200">Contact</a></li>
+                <li class="relative group">
+                    <button id="more-dropdown-btn" class="nav-link hover:bg-gray-800 py-2 px-3 rounded-md transition-colors duration-200 flex items-center">
+                        More <i class="fas fa-caret-down ml-1"></i>
+                    </button>
+                    <div id="more-dropdown" class="absolute left-0 mt-2 w-48 bg-white text-black shadow-lg rounded-md hidden group-hover:block transition-all duration-300">
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-200">Merchandise</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-200">Media</a>
+                        <a href="#" class="block px-4 py-2 hover:bg-gray-200">Extras</a>
+                    </div>
+                </li>
+            </ul>
+
+            <div class="flex items-center space-x-4 ml-auto">
+                <button id="search-toggle-btn" class="text-white text-lg hover:text-gray-400 focus:outline-none lg:px-3 lg:py-2">
+                    <i class="fas fa-search"></i>
+                </button>
+                <button id="mobile-menu-btn" class="text-white text-lg lg:hidden hover:text-gray-400 focus:outline-none">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+        </div>
+
+        <div id="search-input-wrapper" class="search-input-wrapper hidden w-full px-4 py-2 bg-gray-900 justify-center items-center">
+            <input type="text" placeholder="Search..." class="w-full max-w-md p-2 rounded-md bg-gray-800 text-white border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500">
+        </div>
+
+        <div id="mobile-menu" class="lg:hidden bg-black py-2 hidden">
+            <ul class="flex flex-col text-sm uppercase font-semibold">
+                <li><a href="#home" class="nav-link block py-2 px-4 hover:bg-gray-800">Home</a></li>
+                <li><a href="#band" class="nav-link block py-2 px-4 hover:bg-gray-800">Band</a></li>
+                <li><a href="#tour" class="nav-link block py-2 px-4 hover:bg-gray-800">Tour</a></li>
+                <li><a href="#contact" class="nav-link block py-2 px-4 hover:bg-gray-800">Contact</a></li>
+                <li class="relative">
+                    <button id="mobile-more-btn" class="block py-2 px-4 hover:bg-gray-800 w-full text-left flex items-center justify-between">
+                        More <i class="fas fa-caret-down ml-1"></i>
+                    </button>
+                    <div id="mobile-more-dropdown" class="bg-gray-800 text-white hidden">
+                        <a href="#" class="block px-6 py-2 hover:bg-gray-700">Merchandise</a>
+                        <a href="#" class="block px-6 py-2 hover:bg-gray-700">Media</a>
+                        <a href="#" class="block px-6 py-2 hover:bg-gray-700">Extras</a>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <section id="home" class="relative w-full h-[600px] mt-[72px] overflow-hidden">
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out" style="background-image: url('https://www.w3schools.com/w3css/img_la.jpg'); background-size: cover; background-position: center;">
+            <div class="absolute slideshow-text text-white text-center w-full px-4 py-8">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-2">LA</h2>
+                <p class="text-lg sm:text-xl hidden sm:block">Thank you, Chicago - A night we won't forget.</p>
+            </div>
+        </div>
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://www.w3schools.com/w3css/img_ny.jpg'); background-size: cover; background-position: center;">
+            <div class="absolute slideshow-text text-white text-center w-full px-4 py-8">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-2">New York</h2>
+                <p class="text-lg sm:text-xl hidden sm:block">The atmosphere in New York is awesome.</p>
+            </div>
+        </div>
+        <div class="absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0" style="background-image: url('https://www.w3schools.com/w3css/img_chicago.jpg'); background-size: cover; background-position: center;">
+            <div class="absolute slideshow-text text-white text-center w-full px-4 py-8">
+                <h2 class="text-3xl sm:text-4xl font-bold mb-2">Chicago</h2>
+                <p class="text-lg sm:text-xl hidden sm:block">Thank you, Chicago - A night we won't forget.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="band" class="container mx-auto px-4 py-16 text-center">
+        <h2 class="text-4xl font-light mb-4 tracking-wider">THE BAND</h2>
+        <p class="italic text-lg mb-8">We love music</p>
+        <p class="text-gray-700 leading-relaxed max-w-3xl mx-auto mb-12">
+            We have been The Band since 2012. We are a music group composed of three passionate musicians. Our journey began with a shared love for creating unique sounds and performing live. Over the years, we've honed our craft, blending various genres to deliver an electrifying experience to our audience. We are dedicated to bringing joy and excitement through our music, and we constantly strive to push our creative boundaries.
+            Our fans are at the heart of everything we do, and we're grateful for their unwavering support. We look forward to seeing you at our next show!
+        </p>
+
+        <div class="flex flex-wrap justify-center gap-8">
+            <div class="w-full sm:w-1/3 flex flex-col items-center">
+                <p class="mb-4 text-xl font-semibold">Name</p>
+                <img src="https://www.w3schools.com/w3css/img_bandmember.jpg" alt="Band Member" class="w-32 h-32 rounded-lg object-cover shadow-md mb-4">
+            </div>
+            <div class="w-full sm:w-1/3 flex flex-col items-center">
+                <p class="mb-4 text-xl font-semibold">Name</p>
+                <img src="https://www.w3schools.com/w3css/img_bandmember.jpg" alt="Band Member" class="w-32 h-32 rounded-lg object-cover shadow-md mb-4">
+            </div>
+            <div class="w-full sm:w-1/3 flex flex-col items-center">
+                <p class="mb-4 text-xl font-semibold">Name</p>
+                <img src="https://www.w3schools.com/w3css/img_bandmember.jpg" alt="Band Member" class="w-32 h-32 rounded-lg object-cover shadow-md mb-4">
+            </div>
+        </div>
+    </section>
+
+    <section id="tour" class="bg-gray-900 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h2 class="text-4xl font-light mb-4 tracking-wider">TOUR DATES</h2>
+            <p class="italic text-lg mb-8">Remember to book your tickets!</p>
+
+            <div class="bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden max-w-3xl mx-auto mb-8">
+                <ul class="divide-y divide-gray-200">
+                    <li class="flex justify-between items-center py-3 px-6">
+                        <span class="font-semibold">September</span>
+                        <span class="bg-red-600 text-white text-xs px-2 py-1 rounded-sm">Sold out</span>
+                    </li>
+                    <li class="flex justify-between items-center py-3 px-6">
+                        <span class="font-semibold">October</span>
+                        <span class="bg-red-600 text-white text-xs px-2 py-1 rounded-sm">Sold out</span>
+                    </li>
+                    <li class="flex justify-between items-center py-3 px-6">
+                        <span class="font-semibold">November</span>
+                        <span class="bg-green-500 text-white text-xs px-2 py-1 rounded-full">3</span>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-3 gap-8">
+                <div class="bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://www.w3schools.com/w3css/img_newyork.jpg" alt="New York Concert" class="w-full h-48 object-cover">
+                    <div class="p-6 text-left">
+                        <h3 class="text-xl font-semibold mb-2">New York</h3>
+                        <p class="text-gray-600 text-sm mb-2"><i class="far fa-calendar-alt mr-2"></i>Fri 27 Nov 2024</p>
+                        <p class="text-gray-700 mb-4">An unforgettable night for rock music fans.</p>
+                        <button class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors duration-200 w-full text-center">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://www.w3schools.com/w3css/img_paris.jpg" alt="Paris Concert" class="w-full h-48 object-cover">
+                    <div class="p-6 text-left">
+                        <h3 class="text-xl font-semibold mb-2">Paris</h3>
+                        <p class="text-gray-600 text-sm mb-2"><i class="far fa-calendar-alt mr-2"></i>Sat 28 Nov 2024</p>
+                        <p class="text-gray-700 mb-4">Live performance in the city of lovers, Paris.</p>
+                        <button class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors duration-200 w-full text-center">Buy Tickets</button>
+                    </div>
+                </div>
+                <div class="bg-white text-gray-800 rounded-lg shadow-lg overflow-hidden">
+                    <img src="https://www.w3schools.com/w3css/img_sanfran.jpg" alt="San Francisco Concert" class="w-full h-48 object-cover">
+                    <div class="p-6 text-left">
+                        <h3 class="text-xl font-semibold mb-2">San Francisco</h3>
+                        <p class="text-gray-600 text-sm mb-2"><i class="far fa-calendar-alt mr-2"></i>Sun 29 Nov 2024</p>
+                        <p class="text-gray-700 mb-4">A musical feast in the shadow of the Golden Gate.</p>
+                        <button class="bg-black text-white px-4 py-2 rounded-md hover:bg-gray-800 transition-colors duration-200 w-full text-center">Buy Tickets</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="container mx-auto px-4 py-16 text-center">
+        <h2 class="text-4xl font-light mb-4 tracking-wider">CONTACT</h2>
+        <p class="italic text-lg mb-8">Fan? Drop a message.</p>
+
+        <div class="max-w-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 text-left">
+            <div class="space-y-4">
+                <p><i class="fas fa-map-marker-alt fa-fw mr-3"></i>Chicago, US</p>
+                <p><i class="fas fa-phone fa-fw mr-3"></i>Phone: +00 151515</p>
+                <p><i class="fas fa-envelope fa-fw mr-3"></i>Email: mail@mail.com</p>
+            </div>
+            <form class="space-y-4">
+                <input type="text" placeholder="Name" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="email" placeholder="Email" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <input type="text" placeholder="Message" required class="w-full p-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500">
+                <button type="submit" class="bg-black text-white px-6 py-2 rounded-md hover:bg-gray-800 transition-colors duration-200 float-right">SEND</button>
+            </form>
+        </div>
+    </section>
+
+    <div class="w-full">
+        <img src="https://www.w3schools.com/w3css/img_map.jpg" alt="Map" class="w-full h-auto object-cover">
+    </div>
+
+    <footer class="bg-gray-800 text-white py-8 text-center">
+        <div class="container mx-auto px-4">
+            <div class="flex justify-center space-x-6 text-2xl mb-4">
+                <a href="#" class="hover:text-gray-400"><i class="fab fa-facebook-square"></i></a>
+                <a href="#" class="hover:text-gray-400"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="hover:text-gray-400"><i class="fab fa-snapchat-ghost"></i></a>
+                <a href="#" class="hover:text-gray-400"><i class="fab fa-pinterest-p"></i></a>
+                <a href="#" class="hover:text-gray-400"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="hover:text-gray-400"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <p class="text-gray-400 text-sm">
+                Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank" class="text-blue-400 hover:underline">w3.css</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            const mobileMoreBtn = document.getElementById('mobile-more-btn');
+            const mobileMoreDropdown = document.getElementById('mobile-more-dropdown');
+            const searchToggleButton = document.getElementById('search-toggle-btn');
+            const searchInputWrapper = document.getElementById('search-input-wrapper');
+            const slideshowImages = document.querySelectorAll('#home > div');
+            const navLinks = document.querySelectorAll('.nav-link');
+
+            let currentSlide = 0;
+
+            // Function to show a specific slide
+            const showSlide = (index) => {
+                slideshowImages.forEach((img, i) => {
+                    if (i === index) {
+                        img.style.opacity = '1';
+                        img.style.zIndex = '1'; // Bring to front
+                    } else {
+                        img.style.opacity = '0';
+                        img.style.zIndex = '0'; // Send to back
+                    }
+                });
+            };
+
+            // Automatic slideshow transition
+            const startSlideshow = () => {
+                setInterval(() => {
+                    currentSlide = (currentSlide + 1) % slideshowImages.length;
+                    showSlide(currentSlide);
+                }, 4000); // Change image every 4 seconds
+            };
+
+            // Initial slide display
+            showSlide(currentSlide);
+            startSlideshow();
+
+            // Mobile menu toggle
+            mobileMenuBtn.addEventListener('click', () => {
+                mobileMenu.classList.toggle('hidden');
+            });
+
+            // Mobile "More" dropdown toggle
+            mobileMoreBtn.addEventListener('click', () => {
+                mobileMoreDropdown.classList.toggle('hidden');
+            });
+
+            // Search input toggle
+            searchToggleButton.addEventListener('click', () => {
+                searchInputWrapper.classList.toggle('hidden');
+                searchInputWrapper.classList.toggle('show');
+            });
+
+            // Smooth scrolling for navigation links and active state
+            navLinks.forEach(link => {
+                link.addEventListener('click', (e) => {
+                    const href = link.getAttribute('href');
+                    if (href && href.startsWith('#')) {
+                        e.preventDefault();
+                        const targetId = href.substring(1);
+                        const targetElement = document.getElementById(targetId);
+                        if (targetElement) {
+                            // Adjust scroll position to account for fixed header
+                            const headerOffset = 72; // Height of the fixed header
+                            const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
+                            const offsetPosition = elementPosition - headerOffset;
+
+                            window.scrollTo({
+                                top: offsetPosition,
+                                behavior: "smooth"
+                            });
+
+                            // Close mobile menu after clicking a link
+                            if (!mobileMenu.classList.contains('hidden')) {
+                                mobileMenu.classList.add('hidden');
+                            }
+                            // Hide mobile more dropdown if open
+                            if (!mobileMoreDropdown.classList.contains('hidden')) {
+                                mobileMoreDropdown.classList.add('hidden');
+                            }
+                        }
+                    }
+                });
+            });
+
+            // Set active class for nav links on scroll
+            const sections = document.querySelectorAll('section[id], div[id="home"]'); // Get all sections with an id
+            const highlightNavLink = () => {
+                let current = '';
+                sections.forEach(section => {
+                    const sectionTop = section.offsetTop - 80; // Adjust for header height
+                    const sectionHeight = section.clientHeight;
+                    if (pageYOffset >= sectionTop && pageYOffset < sectionTop + sectionHeight) {
+                        current = section.getAttribute('id');
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${current}`) {
+                        link.classList.add('active');
+                    }
+                });
+            };
+
+            window.addEventListener('scroll', highlightNavLink);
+            highlightNavLink(); // Call on load to set initial active link
+        });
+    </script>
+</body>
+</html>
